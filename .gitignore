@@ -2,3 +2,5 @@
 LambSauce.iml
 target/
 out/
+test\ truths/*/output.test*.*.csv
+
