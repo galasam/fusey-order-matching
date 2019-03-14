@@ -1,0 +1,1 @@
+java -jar matchTest.jar %1
