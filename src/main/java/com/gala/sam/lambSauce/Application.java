@@ -13,8 +13,10 @@ public class Application {
 
   public static void main(String[] args) throws IOException {
     ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+    /*
     FileEntryPoint fileEntryPoint = context.getBean(FileEntryPoint.class);
     fileEntryPoint.processTradesFromFile();
+    */
   }
 
 }

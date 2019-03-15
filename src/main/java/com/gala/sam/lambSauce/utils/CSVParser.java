@@ -30,8 +30,12 @@ public class CSVParser {
   private final static String OUTPUT_HEADER = String.join(",", "BUY ORDER", "SELL ORDER", "MATCH QTY", "MATCH PRICE");
 
   public static List<Order> decodeCSV(List<String> input) {
-    return input.stream()
-        .skip(1)
+    return decodeCSV(input.stream());
+
+  }
+
+  public static List<Order> decodeCSV(Stream<String> input) {
+    return input.skip(1)
         .map(CSVParser::decodeCSVRow)
         .collect(Collectors.toList());
   }
@@ -98,9 +102,13 @@ public class CSVParser {
   }
 
   public static List<String> encodeCSV(List<Trade> output) {
+    return encodeCSV(output.stream());
+  }
+
+  public static List<String> encodeCSV(Stream<Trade> output) {
     return Stream.concat(
         Stream.of(OUTPUT_HEADER),
-        output.stream().map(CSVParser::encodeCSVRow)
+        output.map(CSVParser::encodeCSVRow)
     ).collect(Collectors.toList());
   }
 
